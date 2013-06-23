@@ -505,17 +505,17 @@ end
 local function locate()
 	local x,y,z,facing
 	rednet.open("right")
-	x,y,z gps.locate(3)
+	x,y,z = gps.locate(3)
 	if x and y and z then
 		printCentered("Receiving coordinates from host...", 4)
 		forward()
 		local tmpx,tmpy,tmpz = gps.locate(3)
 		if tmpx > x then
-			faceing = 3
+			facing = 3
 		elseif tmpx < x then
-			faceing = 1
+			facing = 1
 		elseif tmpz > z then
-			faceing = 0
+			facing = 0
 		elseif tmpz < z then
 			facing = 2
 		end
